@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%" >
+    <div fxFlex="65%">
+     <app-tabla-usuario (editUsuario)="editarUsuario($event)" [datoUsuario]="datoUsuario"></app-tabla-usuario>
+    </div>
+    <div fxFlex="35%">
+      <app-form-usuario (datoUsuario)="enviarUsuario($event)" [editUsuario]="editUsuario" ></app-form-usuario>
+    </div>
+  </div>
+  

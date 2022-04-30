@@ -1,0 +1,11 @@
+<app-menu></app-menu>
+<p>Empleados</p>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%" >
+    <div fxFlex="65%">
+     <app-tabla-cliente (editUsuario)="editarUsuario($event)" [datoUsuario]="datoUsuario"></app-tabla-cliente>
+    </div>
+    <div fxFlex="35%">
+      <app-form-cliente (datoUsuario)="enviarUsuario($event)" [editUsuario]="editUsuario" ></app-form-cliente>
+    </div>
+  </div>
+  

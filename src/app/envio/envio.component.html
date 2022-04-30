@@ -1,0 +1,10 @@
+<app-menu></app-menu>
+<p>Actividades</p>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%" >
+    <div fxFlex="65%">
+     <app-tabla-envio (editUsuario)="editarUsuario($event)" [datoUsuario]="datoUsuario"></app-tabla-envio>
+    </div>
+    <div fxFlex="35%">
+      <app-form-envio (datoUsuario)="enviarUsuario($event)" [editUsuario]="editUsuario" ></app-form-envio>
+    </div>
+  </div>

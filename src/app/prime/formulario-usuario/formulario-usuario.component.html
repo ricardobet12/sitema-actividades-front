@@ -1,0 +1,45 @@
+<button pButton type="button" icon="pi pi-plus" (click)="activarUsuario()" label="Agregar Usuario"></button>
+<div *ngIf="activarForm">
+    <form [formGroup]="form">
+    <div class="ui-g ui-fluid">
+        
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+                <input type="text" pInputText formControlName="name" class="ng-dirty ng-invalid" placeholder="Nombre">  
+                      
+            </div>
+            <p-message *ngIf="form.controls['name'].hasError('required')" severity="error"  text="Debes ingresar el nombre del usuario"></p-message> 
+        </div>
+        
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-id-card" style="line-height: 1.25;"></i></span>
+                <input type="text" pInputText formControlName="username" placeholder="Usuario">         
+            </div>
+            <p-message  *ngIf="this.form.controls['username'].hasError('required')" severity="error"  text="Debes ingresar un nombre de usuario"></p-message> 
+        </div>
+    </div>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-key" style="line-height: 1.25;"></i></span>
+                <input type="password" formControlName="password" pInputText placeholder="Clave">         
+            </div>
+            <div *ngIf="this.form.controls['password'].hasError('required')">
+                <p-message  *ngIf="this.form.controls['password'].hasError('required')" severity="error"  text="Debes ingresar una contraseña"></p-message> 
+            </div>
+        </div>
+        
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-inbox" style="line-height: 1.25;"></i></span>
+                <input type="text" formControlName="email" pInputText placeholder="Correo">         
+            </div>
+            <p-message  *ngIf="this.form.controls['email'].hasError('required')" severity="error"  text="Debes ingresar un correo"></p-message> 
+            <p-message  *ngIf="this.form.controls['email'].hasError('email')" severity="error"  text="Correo no valido"></p-message> 
+        </div>
+        <button pButton type="button" style="width: 100%;" [disabled]="form.invalid" (click)="guardarUsuario()" icon="pi pi-check" (click)="activarUsuario()" label="Agregar Usuario"></button>
+    </div>
+</form>
+</div>

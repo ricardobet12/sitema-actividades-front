@@ -1,0 +1,63 @@
+<button (click)="activarForm()" mat-mini-fab color="primary">
+    <mat-icon>add</mat-icon>
+</button><br><br>
+
+
+
+
+
+<mat-card *ngIf="activarF">
+    <mat-card-header>
+        <mat-icon>send</mat-icon>
+        <mat-card-title>{{editUsuario==null? 'Agregar Actividad': 'Editar Actividad'}}</mat-card-title>
+        <mat-card-subtitle>Diligencie los campos *</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%">
+                <div fxFlex="100%">
+                    <span>Fecha de registro:   </span>
+                    <p-calendar formControlName="fechaRegistro" showTime="true" [hourFormat]="24"></p-calendar>
+                    <br>
+                    <br>
+                </div>
+                
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%">
+                <div fxFlex="52%">
+                    <mat-form-field>
+                        <mat-select formControlName="estado"  placeholder="Seleccionar Estado">
+                            <mat-option value="Pendiente">Pendiente</mat-option>
+                             <mat-option value="Realizado">Realizado</mat-option>
+                             <mat-option value="Atrasado">Atrasado</mat-option>  
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="45%">
+                    <mat-form-field>
+                        <mat-select formControlName="fkEmpleado"  placeholder="Seleccionar Empleado">
+                            <mat-select-filter [placeholder]="'Filtro'" [displayMember]="'name'" [array]="listaEmpleadosActivos" (filteredReturn)="listaEmpleadosActivos=$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of listaEmpleadosActivos" [value]="item">
+                                {{item.correo}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="1%">
+                <div fxFlex="100%">
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                        <input matInput type="text" formControlName="descripcion" required>
+                        <mat-error *ngIf="form.invalid">{{getErrorMessagePrecioEnvio()}}</mat-error>
+                    </mat-form-field>
+                </div>
+              
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button  (click)="prueba()" style="width: 100%;"
+            color="primary">{{editUsuario==null? 'Guardar': 'Editar'}}</button>
+    </mat-card-actions>
+</mat-card>

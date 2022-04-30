@@ -1,0 +1,61 @@
+<p-table [paginator]="true" [rows]="10" [globalFilterFields]="['name','id']" #tt  [value]="cars" dataKey="id" editMode="row">
+    <ng-template pTemplate="caption">
+        <i class="pi pi-search" style="margin:8px 8px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Filtro"
+            (input)="tt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th style="width:8em"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="rowData">
+            <td>
+                {{rowData.id}}
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.name" required>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.name}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.username" required>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.username}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.email">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.email}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td style="text-align:center">
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info" style="margin-right: .5em" (click)="onRowEditInit(rowData)"></button>
+                <button *ngIf="!editing" pButton type="button" icon="pi pi-trash" class="ui-button-danger"  (click)="eliminarUsuario(rowData)"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(rowData)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

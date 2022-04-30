@@ -1,27 +1,25 @@
-# SistemaActividades
+# Actividades
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+Portal web para el de actividades asociadas  a un empleado.
 
-## Development server
+* Iniciar sesion.
+![](capturas/login.png)	
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Ventana de bienvenido.
 
-## Code scaffolding
+![](capturas/bienvenido.png)	
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Crud de clientes.
+![](capturas/clientes.png)	
 
-## Build
+* Crud de actividades.
+![](capturas/placaHehiculo.png)	
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Autores ✒️
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* **Ricardo Betancourth Bolivar** - [RicardoBet](https://github.com/ricardobet12)
 
-## Running end-to-end tests
+## Licencia 📄
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](https://github.com/ricardobet12/multi-tenant-spring-boot/blob/main/LICENSE) para detalles

@@ -1,0 +1,8 @@
+<div class="ui-g">
+    <div class="ui-g-8">
+        <app-table-user [datoUsuario]="datoUsuario"></app-table-user>
+    </div>
+    <div class="ui-g-4">
+        <app-formulario-usuario  (datoUsuario)="enviarUsuario($event)"></app-formulario-usuario>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+  }
+
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.icon-edit {
+  cursor: pointer;
+}
+
+.icon-delete {
+  cursor: pointer;
+  margin-left: 10px;
+}
